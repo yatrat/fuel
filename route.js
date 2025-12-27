@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function(){
+
 let routes = [];
 let selectedRoute = null;
 
@@ -11,7 +13,7 @@ const mileageLimits = {
   bike:{ petrol:[30,70], ev:[20,50] }
 };
 
-fetch("https://cdn.jsdelivr.net/gh/yatrat/fuel@v2.3/route.json")
+fetch("https://cdn.jsdelivr.net/gh/yatrat/fuel@v2.4/route.json")
   .then(r => r.json())
   .then(d => routes = d.routes);
 
@@ -68,6 +70,7 @@ document.getElementById("calcBtn").addEventListener("click", () => {
   errorBox.innerText = "";
   result.innerHTML = "";
   result.style.display = "none";
+
   if (!selectedRoute) return errorBox.innerText = "Please select a route first";
 
   const v = vehicle.value;
@@ -105,6 +108,8 @@ document.getElementById("calcBtn").addEventListener("click", () => {
     Time: ${tr[0].toFixed(1)} – ${tr[1].toFixed(1)} hrs<br>
     <small>* Prices and distances may vary. Toll taxes not included.</small>
   `;
-    result.style.display = "block";  
+
+  result.style.display = "block";
+});
 
 });
