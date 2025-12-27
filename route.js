@@ -11,7 +11,7 @@ const mileageLimits = {
   bike:{ petrol:[30,70], ev:[20,50] }
 };
 
-fetch("https://cdn.jsdelivr.net/gh/yatrat/fuel@v2.1/route.js")
+fetch("https://cdn.jsdelivr.net/gh/yatrat/fuel@v2.2/route.json")
   .then(r => r.json())
   .then(d => routes = d.routes);
 
